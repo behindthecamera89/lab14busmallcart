@@ -37,20 +37,20 @@ function handleSubmit(event) {
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
-  
+
 }
 
 // TODO.: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
-///// Ryan -   we also did this in class! 
+  ///// Ryan -   we also did this in class! 
 
   // TODO.: suss out the item picked from the select list
   var thing = document.getElementById('items')
   var itemName = thing.value;
-  console.log(itemName);
+
   // TODO.: get the quantity
   var quantity = document.getElementById('quantity').value;
-  console.log(quantity);
+
   // TODO.: using those, add one item to the Cart
   cart.addItem(itemName, quantity);
 }
@@ -58,21 +58,26 @@ function addSelectedItemToCart() {
 // TODO: Somewhat working - Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
   var itemCount = document.getElementById('itemCount');
-  var retrivedCount = localStorage.getItem('cart');
-  var parsedCount = JSON.parse(retrivedCount.length);
-  itemCount.textContent = parsedCount;
+ // var retrievedCount = localStorage.getItem('cart');
+ // var parsedCount = JSON.parse(retrievedCount.length); // ---??
+
+  itemCount.textContent = `(${cart.items.length})`;
 }
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   // TODO: Get the item and quantity from the form
-  var cartOutput  = document.getElementById('cartContents');
+  var cartOutput = document.getElementById('cartContents');
   var retrivedCount = localStorage.getItem('cart');
-  
+
   // TODO: Add a new element to the cartContents div with that information
   //create another div
+//  cartOutput.createElement('div');
+  
   // give that div textcontent:   product info/ itemName and qty
+ // cartOutput.textContent = 
   // append to the parent/dom
+
 }
 
 // Set up the "submit" event listener on the form.
